@@ -1,78 +1,67 @@
-//aqui eu vou criar a bolinha
 let xBolinha = 300;
 let yBolinha = 200;
 let tamBolinha = 25;
-let raiobolinha = tamanhoBolinha/2;
-
-//config velocidade bolinha
-let xvelocidadeBolinha = 6;
-let yvelocidadeBolinha = 6;
-
-//aqui estou configurando a raquete
+let raiobolinha = tamBolinha/2;
 let xRaquete = 5;
 let yRaquete = 150;
-let larguraraquete = 10;
-let alturaraquete = 90;
+let larguraRaquete = 10;
+let alturaRaquete = 90;
+let xvelo= 6;
+let yvelo= 6;
 
 function setup(){
-    //aqui vou criar minha "mesa"
     createCanvas(600,400);
 }
 
 function draw(){
-    //função responsável pelo "desenho e animação da mesa"
-    //aqui vou por a cor da "mesa"
-    //A cor da mesa é em rgb
-    background(128,34,34); 
-    //chamando a função cria bolinha para criar a bolinha
+    background(140,255,255); 
     criaBolinha(xBolinha, yBolinha, tamBolinha);
-    //chamando a função mov bolinha
     moveBolinha();
-    //chamando a borda
     Borda();
     criaRaquete(xRaquete, yRaquete, larguraRaquete, alturaRaquete);
-    movimentaRaquete();
+    MovimentaRaquete();
     colideRaquete();
 }
 
-//função bolinha 
 function criaBolinha(xBolinha, yBolinha,tamBolinha){
     circle (xBolinha,yBolinha,tamBolinha);
 }
 
-//função move bolinha
 function moveBolinha(){
-    xBolinha = xvelocidadeBolinha + xBolinha;
-    yBolinha = yvelocidadeBolinha + yBolinha;
+
+
+    xBolinha = xvelo + xBolinha;
+    yBolinha = yvelo + yBolinha;
 }
 
 function Borda(){
     if (xBolinha > width || xBolinha < 0){
-        xvelocidadeBolinha *= -1;
+        xvelo *= -1;
     }
     if (yBolinha > height || yBolinha < 0){
-        yvelocidadeBolinha *= -1;
+        yvelo *= -1;
     }
 }
+//criar função raquete
 
-//função cria raquete
-function criaRaquete(xRaquete, Yraquete, larguraRaquete, alturaraquete){
+function criaRaquete(xRaquete,yRaquete,larguraRaquete,alturaRaquete){
     fill("blue");
-    Rect(xRaquete, Yraquete, larguraRaquete, alturaraquete); 
+    rect(xRaquete,yRaquete,larguraRaquete,alturaRaquete);
 }
-//função responsável por movimentar a raquete
-function movimentaRaquete(){
-    if(keyIsdown(UP_ARROW)){
-        yRaquete -= 10;
-    }
-    if(keyIsDown(DOWN_ARROW)){
-        yRaquete += 10;
-    }
-}
-//função responsável por quando a bolinha bate na raquete, retornar em direção contrária.
-function colideRaquete(){
+//função responsavel pelo movimento da raquete
 
-    if(xBolinha - raioBolinha < xRaquete + larguraRaquete && yBolinha - raioBolinha < yRaquete + alturaRaquete && yBolinha+ raioBolinha > yRaquete){
-        xvelocidadebolinha *= -1;
+function MovimentaRaquete(){
+if(keyIsDown(UP_ARROW)){
+    yRaquete -=10;
+}
+if(keyIsDown(DOWN_ARROW)){
+    yRaquete +=10;
+}
+}
+//função responsavel pela bolinha bater na aquete ela retornar na posição contrario
+
+function colideRaquete(){
+    if(xBolinha - raiobolinha < xRaquete + larguraRaquete && yBolinha - raiobolinha < yRaquete + alturaRaquete && yBolinha + raiobolinha > yRaquete){
+        xvelo *= -1;
     }
 }
