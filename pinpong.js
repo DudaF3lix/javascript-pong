@@ -16,7 +16,7 @@ function setup(){
 }
 
 function draw(){
-    background(140,255,255); 
+    background(255,192,203); 
     criaBolinha(xBolinha, yBolinha, tamBolinha);
     moveBolinha();
     Borda();
@@ -48,7 +48,7 @@ function Borda(){
 }
 
 function criaRaquete(xRaquete,yRaquete,larguraRaquete,alturaRaquete){
-    fill("blue");
+    fill("red");
     rect(xRaquete,yRaquete,larguraRaquete,alturaRaquete);
 }
 
