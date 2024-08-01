@@ -23,7 +23,7 @@ function draw(){
     //função responsável pelo "desenho e animação da mesa"
     //aqui vou por a cor da "mesa"
     //A cor da mesa é em rgb
-    background(178,34,34); 
+    background(128,34,34); 
     //chamando a função cria bolinha para criar a bolinha
     criaBolinha(xBolinha, yBolinha, tamBolinha);
     //chamando a função mov bolinha
