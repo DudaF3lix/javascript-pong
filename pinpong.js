@@ -46,6 +46,22 @@ function Borda(){
 }
 
 //função cria raquete
-function criaRaquete(){
-    
+function criaRaquete(xRaquete, Yraquete, larguraRaquete, alturaraquete){
+    fill("blue");
+    Rect(xRaquete, Yraquete, larguraRaquete, alturaraquete); 
+}
+//função responsável por movimentar a raquete
+function movimentaRaquete(){
+    if(keyIsdown(UP_ARROW)){
+    }
+    if(keyIsDown(DOWN_ARROW)){
+
+    }
+}
+//função responsável por quando a bolinha bate na raquete, retornar e direção contrária.
+function colideRaquete(){
+
+    if(xBolinha - raioBolinha < xRaquete + larguraRaquete && yBolinha - raioBolinha < yRaquete + alturaRaquete && yBolinha+ raioBolinha > yRaquete){
+        xvelocidadebolinha *= -1;
+    }
 }
