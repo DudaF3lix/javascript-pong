@@ -63,12 +63,13 @@ function criaRaquete(xRaquete, Yraquete, larguraRaquete, alturaraquete){
 //função responsável por movimentar a raquete
 function movimentaRaquete(){
     if(keyIsdown(UP_ARROW)){
+        yRaquete -= 10;
     }
     if(keyIsDown(DOWN_ARROW)){
-
+        yRaquete += 10;
     }
 }
-//função responsável por quando a bolinha bate na raquete, retornar e direção contrária.
+//função responsável por quando a bolinha bate na raquete, retornar em direção contrária.
 function colideRaquete(){
 
     if(xBolinha - raioBolinha < xRaquete + larguraRaquete && yBolinha - raioBolinha < yRaquete + alturaRaquete && yBolinha+ raioBolinha > yRaquete){
