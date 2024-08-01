@@ -2,10 +2,17 @@
 let xBolinha = 300;
 let yBolinha = 200;
 let tamBolinha = 25;
+let raiobolinha = tamanhoBolinha/2;
 
 //config velocidade bolinha
 let xvelocidadeBolinha = 6;
 let yvelocidadeBolinha = 6;
+
+//aqui estou configurando a raquete
+let xRaquete = 5;
+let yRaquete = 150;
+let larguraraquete = 10;
+let alturaraquete = 90;
 
 function setup(){
     //aqui vou criar minha "mesa"
@@ -23,9 +30,12 @@ function draw(){
     moveBolinha();
     //chamando a borda
     Borda();
+    criaRaquete(xRaquete, yRaquete, larguraRaquete, alturaRaquete);
+    movimentaRaquete();
+    colideRaquete();
 }
 
-//função bolinha
+//função bolinha 
 function criaBolinha(xBolinha, yBolinha,tamBolinha){
     circle (xBolinha,yBolinha,tamBolinha);
 }
